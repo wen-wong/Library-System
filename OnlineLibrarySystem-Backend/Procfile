@@ -1,0 +1,1 @@
+web: java -jar OnlineLibrarySystem-Backend/build/libs/OnlineLibrarySystem-Backend-0.0.1-SNAPSHOT.jar

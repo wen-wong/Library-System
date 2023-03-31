@@ -1,0 +1,275 @@
+Index: OnlineLibrarySystem-Frontend/src/components/librarianAdd/librarianAddView.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// import axios from 'axios'\r\nimport Cart from '@/components/cart/Cart.vue'\r\nvar config = require('../../../config')\r\n// import { BIcon, BIconTrash} from 'bootstrap-vue'\r\n// var frontendUrl = 'http://' + config.dev.host + ':' + config.dev.port\r\n// var backendUrl = 'http://' + config.dev.backendHost + ':' + config.dev.backendPort\r\n\r\n// var AXIOS = axios.create({\r\n//   baseURL: backendUrl,\r\n//   headers: { 'Access-Control-Allow-Origin': frontendUrl }\r\n// })\r\n// var itemId1\r\n// var itemId2\r\n\r\nexport default {\r\n  name: \"LibrarianAdd\",\r\n  components: {\r\n    Cart\r\n  },\r\n  data() {\r\n    return {\r\n      form: {\r\n        clientId: ''\r\n      },\r\n      actions: [{ text: 'Select One', value: null }, 'Get Cart', 'Get Profile' ],\r\n      show: true,\r\n      loading: false,\r\n      showCart: false,\r\n      chosenClient: '',\r\n      returnStatus: ''\r\n    }\r\n  },\r\n  methods: {\r\n    onSubmit(event) {\r\n      event.preventDefault()\r\n      this.loading = true\r\n\r\n      if(this.form.action == \"Get Cart\") {\r\n        this.showCart = false;\r\n        this.loading = true;\r\n        this.showCart = true\r\n        this.chosenClient = this.form.clientId\r\n        this.returnStatus = \"showing cart of client \" + this.chosenClient\r\n        this.loading = false\r\n      }\r\n      else if(this.form.action == \"Get Profile\") {\r\n        console.log(\"Get Profile\")\r\n      }\r\n    },\r\n    onReset(event) {\r\n      event.preventDefault()\r\n      // Reset our form values\r\n      this.form.clientId = ''\r\n      // Trick to reset/clear native browser form validation state\r\n      this.show = false\r\n      this.$nextTick(() => {\r\n        this.show = true\r\n      })\r\n    }\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/OnlineLibrarySystem-Frontend/src/components/librarianAdd/librarianAddView.js b/OnlineLibrarySystem-Frontend/src/components/librarianAdd/librarianAddView.js
+--- a/OnlineLibrarySystem-Frontend/src/components/librarianAdd/librarianAddView.js	(revision d8ca71c230e6e5f3afe312644f9bbc44779e66ae)
++++ b/OnlineLibrarySystem-Frontend/src/components/librarianAdd/librarianAddView.js	(date 1638245557766)
+@@ -11,6 +11,9 @@
+ // })
+ // var itemId1
+ // var itemId2
++/**
++ * @Author: Simon Wang
++ * */
+ 
+ export default {
+   name: "LibrarianAdd",
+@@ -35,7 +38,7 @@
+       event.preventDefault()
+       this.loading = true
+ 
+-      if(this.form.action == "Get Cart") {
++      if(this.form.action == "Get Cart") {// simply show component if this is selected
+         this.showCart = false;
+         this.loading = true;
+         this.showCart = true
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"c510049a-fb80-4695-9e54-f7022241c396\" name=\"Changes\" comment=\"test\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/OnlineLibrarySystem-Backend/src/main/java/ca/mcgill/ecse321/projectgroup1/controller/ManageCartController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/OnlineLibrarySystem-Backend/src/main/java/ca/mcgill/ecse321/projectgroup1/controller/ManageCartController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/OnlineLibrarySystem-Backend/src/main/java/ca/mcgill/ecse321/projectgroup1/controller/ViewInventoryController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/OnlineLibrarySystem-Backend/src/main/java/ca/mcgill/ecse321/projectgroup1/controller/ViewInventoryController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/OnlineLibrarySystem-Backend/src/main/java/ca/mcgill/ecse321/projectgroup1/service/ManageCartService.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/OnlineLibrarySystem-Backend/src/main/java/ca/mcgill/ecse321/projectgroup1/service/ManageCartService.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/OnlineLibrarySystem-Backend/src/main/java/ca/mcgill/ecse321/projectgroup1/service/ViewInventoryService.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/OnlineLibrarySystem-Backend/src/main/java/ca/mcgill/ecse321/projectgroup1/service/ViewInventoryService.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/OnlineLibrarySystem-Frontend/src/components/cart/Cart.vue\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/OnlineLibrarySystem-Frontend/src/components/cart/Cart.vue\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/OnlineLibrarySystem-Frontend/src/components/cart/cardiB.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/OnlineLibrarySystem-Frontend/src/components/cart/cardiB.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/OnlineLibrarySystem-Frontend/src/components/librarianAdd/librarianAdd.vue\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/OnlineLibrarySystem-Frontend/src/components/librarianAdd/librarianAdd.vue\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/OnlineLibrarySystem-Frontend/src/components/librarianAdd/librarianAddView.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/OnlineLibrarySystem-Frontend/src/components/librarianAdd/librarianAddView.js\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ExternalProjectsData\">\r\n    <projectState path=\"$PROJECT_DIR$\">\r\n      <ProjectState />\r\n    </projectState>\r\n  </component>\r\n  <component name=\"ExternalProjectsManager\">\r\n    <system id=\"GRADLE\">\r\n      <state>\r\n        <task path=\"$PROJECT_DIR$\">\r\n          <activation />\r\n        </task>\r\n        <projects_view>\r\n          <tree_state>\r\n            <expand>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"project-group-01\" type=\"f1a62948:ProjectNode\" />\r\n              </path>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"project-group-01\" type=\"f1a62948:ProjectNode\" />\r\n                <item name=\"Tasks\" type=\"e4a08cd1:TasksNode\" />\r\n              </path>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"project-group-01\" type=\"f1a62948:ProjectNode\" />\r\n                <item name=\"Run Configurations\" type=\"7b0102dc:RunConfigurationsNode\" />\r\n              </path>\r\n            </expand>\r\n            <select />\r\n          </tree_state>\r\n        </projects_view>\r\n      </state>\r\n    </system>\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"HTML File\" />\r\n        <option value=\"TypeScript File\" />\r\n        <option value=\"JavaScript File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitSEFilterConfiguration\">\r\n    <file-type-list>\r\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\r\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\r\n      <filtered-out-file-type name=\"TAG\" />\r\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\r\n    </file-type-list>\r\n  </component>\r\n  <component name=\"JpbToolWindowState\">\r\n    <option name=\"myId2FirstActivated\">\r\n      <map>\r\n        <entry key=\"JPA Inspector\" value=\"true\" />\r\n        <entry key=\"JPA Palette\" value=\"true\" />\r\n        <entry key=\"JPA Structure\" value=\"true\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"myId2Visible\">\r\n      <map>\r\n        <entry key=\"JPA Inspector\" value=\"true\" />\r\n        <entry key=\"JPA Palette\" value=\"true\" />\r\n        <entry key=\"JPA Structure\" value=\"false\" />\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"21AgJWcRzznD7qlux0TvcihDAlv\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_ADD_EXTERNAL_FILES\" value=\"true\" />\r\n    <property name=\"DefaultHtmlFileTemplate\" value=\"HTML File\" />\r\n    <property name=\"RequestMappingsPanelOrder0\" value=\"0\" />\r\n    <property name=\"RequestMappingsPanelOrder1\" value=\"1\" />\r\n    <property name=\"RequestMappingsPanelWidth0\" value=\"75\" />\r\n    <property name=\"RequestMappingsPanelWidth1\" value=\"75\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\r\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\r\n    <property name=\"project.structure.last.edited\" value=\"Modules\" />\r\n    <property name=\"project.structure.proportion\" value=\"0.0\" />\r\n    <property name=\"project.structure.side.proportion\" value=\"0.0\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"profiler.jvm\" />\r\n    <property name=\"ts.external.directory.path\" value=\"C:\\Program Files\\JetBrains\\IntelliJ IDEA 2021.2.3\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\foubroker\\OneDrive\\U2 FALL\\ECSE 321\\project-group-01\\OnlineLibrarySystem-Frontend\\src\\components\" />\r\n      <recent name=\"C:\\Users\\foubroker\\OneDrive\\U2 FALL\\ECSE 321\\project-group-01\\OnlineLibrarySystem-Frontend\\src\\components\\cart\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Spring Boot.OnlineLibrarySystemApplication\">\r\n    <configuration name=\"TestManageCartService\" type=\"GradleRunConfiguration\" factoryName=\"Gradle\" temporary=\"true\">\r\n      <ExternalSystemSettings>\r\n        <option name=\"executionName\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"externalSystemIdString\" value=\"GRADLE\" />\r\n        <option name=\"scriptParameters\" value=\"--tests &quot;ca.mcgill.ecse321.projectgroup1.service.TestManageCartService&quot;\" />\r\n        <option name=\"taskDescriptions\">\r\n          <list />\r\n        </option>\r\n        <option name=\"taskNames\">\r\n          <list>\r\n            <option value=\":OnlineLibrarySystem-Backend:test\" />\r\n          </list>\r\n        </option>\r\n        <option name=\"vmOptions\" />\r\n      </ExternalSystemSettings>\r\n      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>\r\n      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>\r\n      <DebugAllEnabled>false</DebugAllEnabled>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"TestViewInventoryService\" type=\"GradleRunConfiguration\" factoryName=\"Gradle\" temporary=\"true\">\r\n      <ExternalSystemSettings>\r\n        <option name=\"executionName\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"externalSystemIdString\" value=\"GRADLE\" />\r\n        <option name=\"scriptParameters\" value=\"--tests &quot;ca.mcgill.ecse321.projectgroup1.service.TestViewInventoryService&quot;\" />\r\n        <option name=\"taskDescriptions\">\r\n          <list />\r\n        </option>\r\n        <option name=\"taskNames\">\r\n          <list>\r\n            <option value=\":OnlineLibrarySystem-Backend:test\" />\r\n          </list>\r\n        </option>\r\n        <option name=\"vmOptions\" />\r\n      </ExternalSystemSettings>\r\n      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>\r\n      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>\r\n      <DebugAllEnabled>false</DebugAllEnabled>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"Tests in 'project-group-01.OnlineLibrarySystem-Backend'\" type=\"GradleRunConfiguration\" factoryName=\"Gradle\" temporary=\"true\">\r\n      <ExternalSystemSettings>\r\n        <option name=\"executionName\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"externalSystemIdString\" value=\"GRADLE\" />\r\n        <option name=\"scriptParameters\" value=\"--tests *\" />\r\n        <option name=\"taskDescriptions\">\r\n          <list />\r\n        </option>\r\n        <option name=\"taskNames\">\r\n          <list>\r\n            <option value=\":OnlineLibrarySystem-Backend:test\" />\r\n          </list>\r\n        </option>\r\n        <option name=\"vmOptions\" />\r\n      </ExternalSystemSettings>\r\n      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>\r\n      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>\r\n      <DebugAllEnabled>false</DebugAllEnabled>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"OnlineLibrarySystemApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\">\r\n      <module name=\"project-group-01.OnlineLibrarySystem-Backend.main\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"ca.mcgill.ecse321.projectgroup1.OnlineLibrarySystemApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Gradle.TestViewInventoryService\" />\r\n        <item itemvalue=\"Gradle.TestManageCartService\" />\r\n        <item itemvalue=\"Gradle.Tests in 'project-group-01.OnlineLibrarySystem-Backend'\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"c510049a-fb80-4695-9e54-f7022241c396\" name=\"Changes\" comment=\"\" />\r\n      <created>1637389241838</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1637389241838</updated>\r\n      <workItem from=\"1637389246579\" duration=\"15000\" />\r\n      <workItem from=\"1637389291250\" duration=\"494000\" />\r\n      <workItem from=\"1637389859657\" duration=\"1728000\" />\r\n      <workItem from=\"1637628212946\" duration=\"1048000\" />\r\n      <workItem from=\"1637635722412\" duration=\"8554000\" />\r\n      <workItem from=\"1637648143445\" duration=\"5058000\" />\r\n      <workItem from=\"1637681412723\" duration=\"6893000\" />\r\n      <workItem from=\"1637691565100\" duration=\"1727000\" />\r\n      <workItem from=\"1637697776983\" duration=\"3520000\" />\r\n      <workItem from=\"1637730640917\" duration=\"459000\" />\r\n      <workItem from=\"1637731183786\" duration=\"4067000\" />\r\n      <workItem from=\"1637815404868\" duration=\"5399000\" />\r\n      <workItem from=\"1637880271296\" duration=\"3944000\" />\r\n      <workItem from=\"1637886111639\" duration=\"5101000\" />\r\n      <workItem from=\"1637940529212\" duration=\"6711000\" />\r\n      <workItem from=\"1637961979533\" duration=\"677000\" />\r\n      <workItem from=\"1637986209269\" duration=\"10202000\" />\r\n      <workItem from=\"1638034105231\" duration=\"10975000\" />\r\n      <workItem from=\"1638049532879\" duration=\"2880000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"trust\">\r\n      <created>1637698348775</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637698348775</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"trust\">\r\n      <created>1637698390942</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637698390942</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"trust\">\r\n      <created>1637730764362</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637730764362</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"trust\">\r\n      <created>1637731240941</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637731240941</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"test\">\r\n      <created>1637731265771</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637731265771</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"test\">\r\n      <created>1637962062802</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1637962062802</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"7\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"Simon\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"trust\" />\r\n    <MESSAGE value=\"test\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"test\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision d8ca71c230e6e5f3afe312644f9bbc44779e66ae)
++++ b/.idea/workspace.xml	(date 1638245752924)
+@@ -4,15 +4,9 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="c510049a-fb80-4695-9e54-f7022241c396" name="Changes" comment="test">
++    <list default="true" id="c510049a-fb80-4695-9e54-f7022241c396" name="Changes" comment="removed broken tests">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/OnlineLibrarySystem-Backend/src/main/java/ca/mcgill/ecse321/projectgroup1/controller/ManageCartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineLibrarySystem-Backend/src/main/java/ca/mcgill/ecse321/projectgroup1/controller/ManageCartController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/OnlineLibrarySystem-Backend/src/main/java/ca/mcgill/ecse321/projectgroup1/controller/ViewInventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineLibrarySystem-Backend/src/main/java/ca/mcgill/ecse321/projectgroup1/controller/ViewInventoryController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/OnlineLibrarySystem-Backend/src/main/java/ca/mcgill/ecse321/projectgroup1/service/ManageCartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineLibrarySystem-Backend/src/main/java/ca/mcgill/ecse321/projectgroup1/service/ManageCartService.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/OnlineLibrarySystem-Backend/src/main/java/ca/mcgill/ecse321/projectgroup1/service/ViewInventoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineLibrarySystem-Backend/src/main/java/ca/mcgill/ecse321/projectgroup1/service/ViewInventoryService.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/OnlineLibrarySystem-Frontend/src/components/cart/Cart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineLibrarySystem-Frontend/src/components/cart/Cart.vue" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/OnlineLibrarySystem-Frontend/src/components/cart/cardiB.js" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineLibrarySystem-Frontend/src/components/cart/cardiB.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/OnlineLibrarySystem-Frontend/src/components/librarianAdd/librarianAdd.vue" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineLibrarySystem-Frontend/src/components/librarianAdd/librarianAdd.vue" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/OnlineLibrarySystem-Frontend/src/components/cart/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineLibrarySystem-Frontend/src/components/cart/cart.js" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/OnlineLibrarySystem-Frontend/src/components/librarianAdd/librarianAddView.js" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineLibrarySystem-Frontend/src/components/librarianAdd/librarianAddView.js" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -67,7 +61,7 @@
+   <component name="Git.Settings">
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+-        <entry key="$PROJECT_DIR$" value="main" />
++        <entry key="$PROJECT_DIR$" value="Simon" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+@@ -117,8 +111,8 @@
+     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+     <property name="nodejs_package_manager_path" value="npm" />
+     <property name="project.structure.last.edited" value="Modules" />
+-    <property name="project.structure.proportion" value="0.0" />
+-    <property name="project.structure.side.proportion" value="0.0" />
++    <property name="project.structure.proportion" value="0.15" />
++    <property name="project.structure.side.proportion" value="0.2" />
+     <property name="settings.editor.selected.configurable" value="profiler.jvm" />
+     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2021.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+     <property name="vue.rearranger.settings.migration" value="true" />
+@@ -129,7 +123,7 @@
+       <recent name="C:\Users\foubroker\OneDrive\U2 FALL\ECSE 321\project-group-01\OnlineLibrarySystem-Frontend\src\components\cart" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="Spring Boot.OnlineLibrarySystemApplication">
++  <component name="RunManager" selected="Gradle.TestManageCartService">
+     <configuration name="TestManageCartService" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+       <ExternalSystemSettings>
+         <option name="executionName" />
+@@ -202,8 +196,8 @@
+     </configuration>
+     <recent_temporary>
+       <list>
+-        <item itemvalue="Gradle.TestViewInventoryService" />
+         <item itemvalue="Gradle.TestManageCartService" />
++        <item itemvalue="Gradle.TestViewInventoryService" />
+         <item itemvalue="Gradle.Tests in 'project-group-01.OnlineLibrarySystem-Backend'" />
+       </list>
+     </recent_temporary>
+@@ -234,7 +228,9 @@
+       <workItem from="1637961979533" duration="677000" />
+       <workItem from="1637986209269" duration="10202000" />
+       <workItem from="1638034105231" duration="10975000" />
+-      <workItem from="1638049532879" duration="2880000" />
++      <workItem from="1638049532879" duration="3730000" />
++      <workItem from="1638143166097" duration="3449000" />
++      <workItem from="1638245241334" duration="499000" />
+     </task>
+     <task id="LOCAL-00001" summary="trust">
+       <created>1637698348775</created>
+@@ -278,7 +274,35 @@
+       <option name="project" value="LOCAL" />
+       <updated>1637962062802</updated>
+     </task>
+-    <option name="localTasksCounter" value="7" />
++    <task id="LOCAL-00007" summary="ya im done my use case">
++      <created>1638052513620</created>
++      <option name="number" value="00007" />
++      <option name="presentableId" value="LOCAL-00007" />
++      <option name="project" value="LOCAL" />
++      <updated>1638052513620</updated>
++    </task>
++    <task id="LOCAL-00008" summary="ya im done my use case">
++      <created>1638052541457</created>
++      <option name="number" value="00008" />
++      <option name="presentableId" value="LOCAL-00008" />
++      <option name="project" value="LOCAL" />
++      <updated>1638052541458</updated>
++    </task>
++    <task id="LOCAL-00009" summary="ya im done my use case">
++      <created>1638052642192</created>
++      <option name="number" value="00009" />
++      <option name="presentableId" value="LOCAL-00009" />
++      <option name="project" value="LOCAL" />
++      <updated>1638052642192</updated>
++    </task>
++    <task id="LOCAL-00010" summary="removed broken tests">
++      <created>1638147870415</created>
++      <option name="number" value="00010" />
++      <option name="presentableId" value="LOCAL-00010" />
++      <option name="project" value="LOCAL" />
++      <updated>1638147870416</updated>
++    </task>
++    <option name="localTasksCounter" value="11" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -295,13 +319,28 @@
+                   <entry key="branch">
+                     <value>
+                       <list>
+-                        <option value="Simon" />
++                        <option value="main" />
+                       </list>
+                     </value>
+                   </entry>
+                 </map>
+               </option>
+             </State>
++          </value>
++        </entry>
++      </map>
++    </option>
++    <option name="RECENT_FILTERS">
++      <map>
++        <entry key="Branch">
++          <value>
++            <list>
++              <RecentGroup>
++                <option name="FILTER_VALUES">
++                  <option value="main" />
++                </option>
++              </RecentGroup>
++            </list>
+           </value>
+         </entry>
+       </map>
+@@ -312,6 +351,11 @@
+     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+     <MESSAGE value="trust" />
+     <MESSAGE value="test" />
+-    <option name="LAST_COMMIT_MESSAGE" value="test" />
++    <MESSAGE value="ya im done my use case" />
++    <MESSAGE value="removed broken tests" />
++    <option name="LAST_COMMIT_MESSAGE" value="removed broken tests" />
++  </component>
++  <component name="com.intellij.coverage.CoverageDataManagerImpl">
++    <SUITE FILE_PATH="coverage/project_group_01$TestManageCartService.ic" NAME="TestManageCartService Coverage Results" MODIFIED="1638147930885" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: OnlineLibrarySystem-Frontend/src/components/cart/cart.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import axios from 'axios'\r\nvar config = require('../../../config')\r\nimport { BIcon, BIconTrash} from 'bootstrap-vue'\r\nvar frontendUrl = 'http://' + config.dev.host + ':' + config.dev.port\r\nvar backendUrl = 'http://' + config.dev.backendHost + ':' + config.dev.backendPort\r\n\r\nvar AXIOS = axios.create({\r\n  baseURL: backendUrl,\r\n  headers: { 'Access-Control-Allow-Origin': frontendUrl }\r\n})\r\n\r\nexport default {\r\n  props: [\"view\",\"clientId\"],\r\n  name: \"Cart\",\r\n  components: {\r\n    BIcon,\r\n    BIconTrash\r\n  },\r\n  data() {\r\n    return {\r\n      form: {\r\n        libraryItemId: ''\r\n      },\r\n      fields: [\r\n        // A virtual column that doesn't exist in items\r\n        'Index',\r\n        // A regular column\r\n        'Title',\r\n        // Status, found in inUseSlot object\r\n        'Status',\r\n        // An action based on status\r\n        'Action',\r\n        // Start Date, found in inUseSlot object\r\n        'StartDate',\r\n        // End Date, found in inUseSlot object\r\n        'EndDate',\r\n        // delete button\r\n        'Delete'\r\n      ],\r\n      inUseSlots: [],\r\n      givenClientId: this.clientId,\r\n      returnStatus: '',\r\n      clientExists: false\r\n    };\r\n  },\r\n  async mounted() {\r\n    // // create library\r\n    // await AXIOS.post('/library/'.concat(\"library?address=1 avenue Library&phonenumber=1231231234&email=library@mail.ca\"))\r\n    // //create book\r\n    // await AXIOS.post(\"/book/library/\".concat(\"library?author=someone&pageNumber=10&title=something1&description=stuff&releasedate=2018-05-12&isArchive=FALSE\")).then(res => itemId1 = res.data.id)\r\n    // await AXIOS.post(\"/book/library/\".concat(\"library?author=someone&pageNumber=10&title=something2&description=stuff&releasedate=2018-05-12&isArchive=FALSE\")).then(res => itemId2 = res.data.id)\r\n    // //create client\r\n    // await AXIOS.post('/accounts/clients/'.concat(\"?name=Jack&address=12 jacky str&libraryName=library&password=pass&phoneNumber=1234567891&email=jack@mail.ca&isResidentString=false\")).then(res => localStorage.setItem('userId', res.data.id))\r\n    // //add items to client\r\n    // await AXIOS.post(\"/add/?clientid=\" + localStorage.getItem('userId') + \"&itemid=\" + itemId1 + \"&currentdate=2021-11-10\").then(res => console.log(res.data))\r\n    // await AXIOS.post(\"/add/?clientid=\" + localStorage.getItem('userId') + \"&itemid=\" + itemId2 + \"&currentdate=2021-11-10\").then(res => console.log(res.data))\r\n    // Initializing persons from backend\r\n    this.checkClientId()\r\n    await AXIOS.get('/client/cartInUseSlot/'+ this.givenClientId)\r\n      .then(r => {\r\n        if(typeof r.data === 'string' || r.data instanceof String) {\r\n          this.clientExists = false\r\n        }\r\n        else {\r\n          // JSON responses are automatically parsed.\r\n          this.clientExists = true\r\n          this.inUseSlots = r.data\r\n        }\r\n      })\r\n  },\r\n  methods: {\r\n    remove(libraryItemIndex) {\r\n      this.checkClientId()\r\n      let libraryItemId = this.inUseSlots[libraryItemIndex].libraryItem.id\r\n      AXIOS.post('/client/cart/remove/?clientid=' + this.givenClientId + \"&itemid=\" + libraryItemId);\r\n      this.inUseSlots.splice(libraryItemIndex,1)\r\n    },\r\n    reserve(libraryItemIndex) {\r\n      this.checkClientId()\r\n      let libraryItemId = this.inUseSlots[libraryItemIndex].libraryItem.id\r\n        AXIOS.post('/client/cart/reserve/?clientid=' + this.givenClientId + \"&itemid=\" + libraryItemId + \"&currentDate=\" + new Date().toISOString().substring(0, 10)).then(r => {\r\n          this.inUseSlots.splice(libraryItemIndex, 1, r.data)\r\n        });\r\n    },\r\n    renew(libraryItemIndex) {\r\n      this.checkClientId()\r\n      let libraryItemId = this.inUseSlots[libraryItemIndex].libraryItem.id\r\n      AXIOS.post('/client/cart/renew/?clientid=' + this.givenClientId + \"&itemid=\" + libraryItemId + \"&currentDate=\" + new Date().toISOString().substring(0, 10)).then(r => {\r\n        console.log(r.data)\r\n        this.inUseSlots.splice(libraryItemIndex, 1, r.data)\r\n      });\r\n    },\r\n    onSubmit(event) {\r\n      this.checkClientId()\r\n      event.preventDefault()\r\n      if(this.inUseSlots.length == 10) {\r\n        this.returnStatus = \"cannot haven more than 10 items in cart\"\r\n        return\r\n      }\r\n      AXIOS.post(\"/add/?clientid=\" + this.givenClientId + \"&itemid=\" + this.form.libraryItemId +\"&currentDate=\" + \"&currentdate=\"+new Date().toISOString().substring(0, 10)).then(r => {\r\n        if (typeof r.data === 'string' || r.data instanceof String) {\r\n          this.returnStatus = r.data\r\n        } else {\r\n          this.returnStatus = \"reservation succesful\"\r\n          this.inUseSlots.push(r.data)\r\n        }\r\n      })\r\n    },\r\n    book(libraryItemIndex) {\r\n      this.checkClientId()\r\n      let libraryItemId = this.inUseSlots[libraryItemIndex].libraryItem.id\r\n      AXIOS.post('/client/cart/checkout/?clientid=' + this.givenClientId + \"&itemid=\" + libraryItemId + \"&currentDate=\" + new Date().toISOString().substring(0, 10)).then(r => {\r\n        console.log(r.data)\r\n        this.inUseSlots.splice(libraryItemIndex, 1, r.data)\r\n      });\r\n    },\r\n    returnItem(libraryItemId) {\r\n      let indexToDelete = this.inUseSlots.findIndex((x) => x.libraryItem.id == libraryItemId)\r\n      if(indexToDelete == -1) {\r\n        this.returnStatus = \"item not found\"\r\n        return\r\n      }\r\n      else {\r\n        AXIOS.post(\"/client/cart/return/?itemid=\" + libraryItemId + \"&currentDate=\"+new Date().toISOString().substring(0, 10)).then(r => {\r\n          if (typeof r.data === 'string' || r.data instanceof String) {\r\n            this.returnStatus = r.data\r\n          } else {\r\n            this.returnStatus = \"return succesful\"\r\n            this.inUseSlots.pop(indexToDelete)\r\n          }\r\n        })\r\n      }\r\n    },\r\n    checkClientId() {\r\n      if(!this.givenClientId) {\r\n        this.givenClientId = localStorage.getItem(\"userId\")\r\n      }\r\n    },\r\n    onReset(event) {\r\n      event.preventDefault()\r\n      // Reset our form values\r\n      this.form.libraryItemId=''\r\n      // Trick to reset/clear native browser form validation state\r\n      this.show = false\r\n      this.$nextTick(() => {\r\n        this.show = true\r\n      })\r\n    }\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/OnlineLibrarySystem-Frontend/src/components/cart/cart.js b/OnlineLibrarySystem-Frontend/src/components/cart/cart.js
+--- a/OnlineLibrarySystem-Frontend/src/components/cart/cart.js	(revision d8ca71c230e6e5f3afe312644f9bbc44779e66ae)
++++ b/OnlineLibrarySystem-Frontend/src/components/cart/cart.js	(date 1638245752661)
+@@ -4,6 +4,9 @@
+ var frontendUrl = 'http://' + config.dev.host + ':' + config.dev.port
+ var backendUrl = 'http://' + config.dev.backendHost + ':' + config.dev.backendPort
+ 
++/**
++ * @Author: Simon Wang
++ * */
+ var AXIOS = axios.create({
+   baseURL: backendUrl,
+   headers: { 'Access-Control-Allow-Origin': frontendUrl }
+@@ -44,17 +47,10 @@
+     };
+   },
+   async mounted() {
+-    // // create library
+-    // await AXIOS.post('/library/'.concat("library?address=1 avenue Library&phonenumber=1231231234&email=library@mail.ca"))
+-    // //create book
+-    // await AXIOS.post("/book/library/".concat("library?author=someone&pageNumber=10&title=something1&description=stuff&releasedate=2018-05-12&isArchive=FALSE")).then(res => itemId1 = res.data.id)
+-    // await AXIOS.post("/book/library/".concat("library?author=someone&pageNumber=10&title=something2&description=stuff&releasedate=2018-05-12&isArchive=FALSE")).then(res => itemId2 = res.data.id)
+-    // //create client
+-    // await AXIOS.post('/accounts/clients/'.concat("?name=Jack&address=12 jacky str&libraryName=library&password=pass&phoneNumber=1234567891&email=jack@mail.ca&isResidentString=false")).then(res => localStorage.setItem('userId', res.data.id))
+-    // //add items to client
+-    // await AXIOS.post("/add/?clientid=" + localStorage.getItem('userId') + "&itemid=" + itemId1 + "&currentdate=2021-11-10").then(res => console.log(res.data))
+-    // await AXIOS.post("/add/?clientid=" + localStorage.getItem('userId') + "&itemid=" + itemId2 + "&currentdate=2021-11-10").then(res => console.log(res.data))
+-    // Initializing persons from backend
++    // // create librar
++    /**
++     *Before displaying cart, check if client exists, if not, show message
++     * */
+     this.checkClientId()
+     await AXIOS.get('/client/cartInUseSlot/'+ this.givenClientId)
+       .then(r => {
+@@ -90,6 +86,11 @@
+         this.inUseSlots.splice(libraryItemIndex, 1, r.data)
+       });
+     },
++    /**
++     *
++     * @param event
++     * add libaryItem to client cart
++     */
+     onSubmit(event) {
+       this.checkClientId()
+       event.preventDefault()
+@@ -106,6 +107,10 @@
+         }
+       })
+     },
++    /**
++     * limited to librarians
++     * @param libraryItemIndex
++     */
+     book(libraryItemIndex) {
+       this.checkClientId()
+       let libraryItemId = this.inUseSlots[libraryItemIndex].libraryItem.id
+@@ -114,6 +119,11 @@
+         this.inUseSlots.splice(libraryItemIndex, 1, r.data)
+       });
+     },
++    /**
++     *
++     * @param libraryItemId
++     * limited to librarians
++     */
+     returnItem(libraryItemId) {
+       let indexToDelete = this.inUseSlots.findIndex((x) => x.libraryItem.id == libraryItemId)
+       if(indexToDelete == -1) {
+@@ -131,6 +141,9 @@
+         })
+       }
+     },
++    /**
++     * if accessed from manageAccounts, a clientId will be given, otherwise it is taken from localStorage
++     */
+     checkClientId() {
+       if(!this.givenClientId) {
+         this.givenClientId = localStorage.getItem("userId")

@@ -1,0 +1,3 @@
+rootProject.name = 'project-group-01'
+include 'OnlineLibrarySystem-Backend'
+include 'OnlineLibrarySystem-Frontend'

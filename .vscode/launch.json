@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-OnlineLibrarySystemApplication<OnlineLibrarySystem-Backend>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "ca.mcgill.ecse321.projectgroup1.OnlineLibrarySystemApplication",
+            "projectName": "OnlineLibrarySystem-Backend",
+            "args": ""
+        }
+    ]
+}
